@@ -103,7 +103,7 @@ svg {
 }
 
 button {
-    padding: 20px 25px;
+    padding: 10px 25px;
     font-size: 22px;
 }
 
@@ -111,4 +111,86 @@ button:focus {
     background-color: #A4FFAF;
     border-radius: 5px;
     border: none;
+}
+
+.type_sybols {
+    display: flex;
+    gap: 20px;
+    row-gap: 30px;
+    margin-top: 20px;
+    margin-left: 50px;
+    align-items: center;
+}
+
+.type_sybols input {
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--color-neon-green);
+}
+
+.uppercase_letters {
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+.lowercase_letters {
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+.include_numbers {
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+.include_symbols {
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+.generator {
+    width: 80%;
+    height: 80px;
+    background-color: var(--color-neon-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-top: 30px;
+    gap: 30px;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+#check {
+    position: absolute;
+    margin-left: 5px;
+    display: none;
+}
+
+#check2 {
+    position: absolute;
+    margin-left: 5px;
+    display: none;
+}
+
+#check3 {
+    position: absolute;
+    margin-left: 5px;
+    display: none;
+}
+
+#check4 {
+    position: absolute;
+    margin-left: 5px;
+    display: none;
 }
