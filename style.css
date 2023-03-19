@@ -1,6 +1,108 @@
-div {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-dark-grey: #24232C;
+    --color-grey: #817D92;
+    --color-almost-white: #E6E5EA;
+    --color-very-dark-grey: #18171F;
+    --color-neon-green: #A4FFAF;
+    --color-red: #F64A4A;
+    --color-orange: #FB7C58;
+    --color-yellow: #F8CD65;
+    --font-size-heading-l: 32px;
+    --font-size-heading-m: 24px;
+    --font-size-body: 18px;
+    --font-line-heading-l: 43px;
+    --font-line-heading-m: 31px;
+    --font-line-body: 23px;
+    --font-letter-spacing-body-s: -0.23px;
+}
+
+.container {
     width: 100%;
     height: 100vh;
-    background-color: blue;
+    background-color: var(--color-very-dark-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
 
+.Password {
+    width: 500px;
+    height: 100px;
+    background-color: var(--color-dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+}
+
+.textpassword {
+    font-size: 36px;
+    font-weight: 600;
+    font-family: sans-serif;
+    position: absolute;
+    margin-right: auto;
+    color: var(--color-grey);
+    margin-right: 290px;
+}
+
+svg {
+    margin-left: auto;
+    margin-right: 30px;
+
+}
+
+.Generate {
+    width: 500px;
+    height: 500px;
+    background-color: var(--color-dark-grey);
+}
+
+.character {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.character_length {
+    font-size: 25px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.password_length {
+    font-size: 40px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: var(--color-neon-green);
+}
+
+.click_number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    gap: 35px;
+}
+
+button {
+    padding: 20px 25px;
+    font-size: 22px;
+}
+
+button:focus {
+    background-color: #A4FFAF;
+    border-radius: 5px;
+    border: none;
 }
