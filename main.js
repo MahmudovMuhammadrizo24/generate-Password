@@ -7,58 +7,49 @@ function len() {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             password_length.innerText = button.innerText
-            return button
+            return button.innerText;
         })
     }
 }
-/*
+len()
+
 generator.addEventListener("click", function () {
-    function generatePassword(length) {
-        for (let type of type_sybols) {
 
+    for (let i = 0; i < type_sybols.length; i++) {
+
+        function generatePassword(length) {
+            const charset = "";
+            let Uppercase = "QWERTYUIOPLKJHGFSAZXCVBNM";
+            let Lowercase = "qwertyuioplkjhgfdsazxcvbnm";
+            let number = "1234567890";
+            let symbols = "[({/?<>@#$%!=*&^-";
             type[0].addEventListener("click", function () {
-                let Uppercase = "QWERTYUIOPLKJHGFSAZXCVBNM";
-                let Lowercase = "qwertyuioplkjhgfdsazxcvbnm";
-                let number = "1234567890";
-                let symbols = "[({/?<>@#$%!=*&^-";
-                let password = Uppercase;
-                for (let i = 0; i < length; i++) {
-                    password += charset.charAt(Math.floor(Math.random() * charset.length));
-                }
-                return password;
-
-
+                charset += Uppercase;
+            });
+            type[1].addEventListener("click", function () {
+                charset += Lowercase;
             })
+            type[2].addEventListener("click", function () {
+                charset += number;
+            })
+            type[3].addEventListener("click", function () {
+                charset += symbols;
+            })
+            return charset;
+
 
         }
+        let password = "";
+        for (let i = 0; i < length; i++) {
+            password += charset.charAt(Math.floor(Math.random() * charset.length));
+        }
+        return password;
     }
-    textpassword.innerText = generatePassword(len())
-})*/
-generator.addEventListener("click", function () {
-
-
-
-    function generatePassword(length) {
-        const charset = "";
-        let Uppercase = "QWERTYUIOPLKJHGFSAZXCVBNM";
-        let Lowercase = "qwertyuioplkjhgfdsazxcvbnm";
-        let number = "1234567890";
-        let symbols = "[({/?<>@#$%!=*&^-";
-        buttons[0].addEventListener("click", function () {
-            charset.concat(Uppercase);
-        });
-
-    }
-    let password = "";
-    for (let i = 0; i < length; i++) {
-        password += charset.charAt(Math.floor(Math.random() * charset.length));
-    }
-    return password;
-
+    textpassword.innerText = generatePassword(len(button))
 
     //console.log(generatePassword(12)); //Example output: "2hAd1{8?qyWz"
 
-    textpassword.innerText = generatePassword(5)
+
 })
 
 
