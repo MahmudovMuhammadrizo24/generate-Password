@@ -1,4 +1,5 @@
-const buttons = document.querySelectorAll("button");
+
+/*const buttons = document.querySelectorAll("button");
 const password_length = document.querySelector(".password_length");
 const type_sybols = document.querySelectorAll(".type_sybols");
 const generator = document.querySelector(".generator");
@@ -51,7 +52,97 @@ generator.addEventListener("click", function () {
 
 
 })
+*/
+const passwordElement = document.querySelector('.textpassword');
+const copyIconElement = document.querySelector('[data-testid="copyIcon"]');
+const passwordLengthElement = document.querySelector('.password_length');
+const uppercaseLettersElement = document.querySelector('.uppercase_letters');
+const lowercaseLettersElement = document.querySelector('.lowercase_letters');
+const includeNumbersElement = document.querySelector('.include_numbers');
+const includeSymbolsElement = document.querySelector('.include_symbols');
+const generateButtonElement = document.querySelector('.generator');
 
+let includeUppercaseLetters = false;
+let includeLowercaseLetters = false;
+let includeNumbers = false;
+let includeSymbols = false;
+let passwordLength = 5;
+
+function generatePassword() {
+    let charset = '';
+    if (includeUppercaseLetters) {
+        charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    if (includeLowercaseLetters) {
+        charset += 'abcdefghijklmnopqrstuvwxyz';
+    }
+    if (includeNumbers) {
+        charset += '0123456789';
+    }
+    if (includeSymbols) {
+        charset += '!@#$%^&*()_+-=[]{}\\|;:\'",.<>?/~`';
+    }
+    let password = '';
+    for (let i = 0; i < passwordLength; i++) {
+        const randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+    }
+    passwordElement.textContent = password;
+}
+
+function updatePasswordLength(length) {
+    passwordLength = length;
+    passwordLengthElement.textContent = length;
+}
+
+function updateUppercaseLetters(checked) {
+    includeUppercaseLetters = checked;
+}
+
+function updateLowercaseLetters(checked) {
+    includeLowercaseLetters = checked;
+}
+
+function updateNumbers(checked) {
+    includeNumbers = checked;
+}
+
+function updateSymbols(checked) {
+    includeSymbols = checked;
+}
+
+function copyPasswordToClipboard() {
+    navigator.clipboard.writeText(passwordElement.textContent);
+    alert('Password copied to clipboard!');
+}
+
+generateButtonElement.addEventListener('click', generatePassword);
+copyIconElement.addEventListener('click', copyPasswordToClipboard);
+document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', () => {
+        updatePasswordLength(parseInt(button.textContent));
+    });
+});
+document.querySelectorAll('.input').forEach(input => {
+    input.addEventListener('change', () => {
+        switch (input.nextElementSibling.classList[0]) {
+            case 'uppercase_letters':
+                updateUppercaseLetters(input.checked);
+                break;
+            case 'lowercase_letters':
+                updateLowercaseLetters(input.checked);
+                break;
+            case 'include_numbers':
+                updateNumbers(input.checked);
+                break;
+            case 'include_symbols':
+                updateSymbols(input.checked);
+                break;
+            default:
+                break;
+        }
+    });
+});
 
 
 
